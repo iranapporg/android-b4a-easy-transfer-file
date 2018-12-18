@@ -1,0 +1,85 @@
+﻿Version=4
+IconFile=
+NumberOfModules=9
+Module1=actMenu
+Module2=actUpload
+Module3=actHelp1
+Module4=actHotspot
+Module5=actAction
+Module6=DB
+Module7=myLibrary
+Module8=HttpServers
+Module9=Help
+Build1=Default,app.transfer.receive
+DoNotOverwriteManifest=True
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.basic4ppc.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="4" android:targetSdkVersion="19"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~SetApplicationAttribute(android:theme, "@android:style/Theme.Holo")~\n~AddPermission(android.permission.WRITE_EXTERNAL_STORAGE)~\n~AddPermission(android.permission.WRITE_SETTINGS)~\n~AddPermission(android.permission.CHANGE_WIFI_STATE)~\n~AddPermission(android.permission.READ_EXTERNAL_STORAGE)~\n~AddActivityText(actupload,<intent-filter>~\n~        <action android:name="android.intent.action.SEND_MULTIPLE" />~\n~        <category android:name="android.intent.category.DEFAULT" />~\n~        <data android:mimeType="image/*" />~\n~		<data android:mimeType="video/*" />~\n~		<data android:mimeType="audio/*" />~\n~    </intent-filter>)~\n~AddActivityText(actupload,<intent-filter>~\n~		<action android:name="android.intent.action.SEND" />~\n~        <category android:name="android.intent.category.DEFAULT" />~\n~        <data android:mimeType="image/*" />~\n~		<data android:mimeType="video/*" />~\n~		<data android:mimeType="audio/*" />~\n~    </intent-filter>)~\n~'End of default text.~\n~
+NumberOfFiles=7
+File1=bg.png
+File2=byekan.ttf
+File3=frmconnected.bal
+File4=frmhelp.bal
+File5=frmhotspot.bal
+File6=frmsplash.bal
+File7=frmupload.bal
+NumberOfLibraries=14
+Library1=core
+Library2=stringutils
+Library3=archiver
+Library4=animationplus
+Library5=sql
+Library6=contentresolver
+Library7=rippleeffect
+Library8=hotspotlib
+Library9=network
+Library10=httpserver
+Library11=reflection
+Library12=phone
+Library13=oslibrary
+Library14=javaobject
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: انتقال گالری به کامپیوتر
+	#VersionCode: 2
+	#VersionName: 2.0
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: portrait
+	#CanInstallToExternalStorage:True
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: False
+	#IncludeTitle: False
+#End Region
+
+Sub Process_Globals
+	Dim timer1 As Timer
+End Sub
+
+Sub Globals
+	Private lbl1 As Label
+	Private pnl1 As Panel
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	Activity.LoadLayout("frmsplash")
+	timer1.Initialize("tmr1",1900)
+	timer1.Enabled = True
+	myLibrary.Font(lbl1)
+	pnl1.SetVisibleAnimated(1500,True)
+	pnl1.Visible = True
+End Sub
+
+Sub Activity_Resume
+
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+
+End Sub
+
+Sub tmr1_Tick
+	timer1.Enabled = False
+	Activity.Finish
+	actHelp1.HelpName = ""
+	StartActivity(actHelp1)
+End Sub

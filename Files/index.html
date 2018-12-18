@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+
+	<title>انتقال آسان گالری به کامپیوتر</title>
+
+	<meta name="description" lang="en" content="Lightbox is a script used to overlay images on the current page. It's a snap to setup and works on all modern browsers."/>
+	<meta name="author" content="Lokesh Dhakar">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Karla%7CMontserrat">-->
+
+
+	<link rel="stylesheet" href="lightbox.css">	<link href="doc.css" rel="stylesheet">
+	<link href="bootstrap.min.css" rel="stylesheet">
+	<link href="bootstrap-theme.min.css" rel="stylesheet">
+	<style>
+	* {
+		font-family:tahoma;
+	}
+	</style>
+</head>
+<body>
+  <div class="container">
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav" style="float: right; font-family: tahoma; font-size: 12px; }">
+
+        <li>
+          <a href="http://quicklearn.ir/quicklearn_group">معرفي</a>
+        </li>
+		<li>
+          <a href="http://quicklearn.ir/other_products">ديگر محصولات</a>
+        </li>
+        <li class="active">
+          <a href="#">صفحه اصلي</a>
+        </li>
+      </ul>
+
+    </nav>
+  </div>
+  
+	<div class="bs-docs-header" id="content">
+		  <div class="container" style="font-family:tahoma">
+			<h1>انتقال گالري به کامپيوتر</h1></br>
+			 <p>انتقال آسان فايل بين گوشي و کامپيوتر شما</p>
+		  </div>
+	</div>
+  
+	<section id="examples" class="examples-section">
+		<div class="container">
+		 
+		$ul
+				
+		</div>
+	</section>
+
+ 
+
+	<script src="jquery-1.11.0.min.js"></script>
+	<script>
+	$(document).ready(function(e) {
+	 $("a[id=delete]").click(function(e) {
+	   e.preventDefault();
+	   var file_path = $(this).data('path');
+	   $.post("delete/" + file_path,function(data) {
+		 if (data == 1)
+		  {
+			alert('فايل مورد نظر با موفقيت حذف شد');
+			location.reload();
+		  }
+	   });
+	 });
+	});
+	</script>
+	<script src="lightbox.js"></script>
+
+	<script>
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-2196019-1']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+	</script>
+
+</body>
+</html>
